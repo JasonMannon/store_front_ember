@@ -8,18 +8,33 @@
   <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
-  <script type="text/x-handlebars">
-    <h2>Welcome to Ember.js</h2>
-
-    {{outlet}}
+  <script type="text/x-handlebars" data-template-name='application'>
+    <div class="navbar navbar-default">
+      <div class='container'>
+         <a href='#' class='navbar-brand'><img src='img/flame.png' alt='logo' height='34' width='100' /></a>
+        <ul class='nav navbar-nav navbar-right'>
+          <li>{{#link-to 'index'  class='navbar-brand' }}Home{{/link-to}}</li>
+          <li>{{#link-to 'about'}}About{{/link-to}}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">{{outlet}}</div>
+    <footer class="container">
+      <p class='pull-left'>&copy; 2014 The Flint &amp; Flame</p>
+      <p class='pull-right'>{{#link-to 'credits'}}Credits{{/link-to}}</p>
+    </footer>
   </script>
 
-  <script type="text/x-handlebars" id="index">
-    <ul>
-    {{#each item in model}}
-      <li>{{item}}</li>
-    {{/each}}
-    </ul>
+  <script type="text/x-handlebars" data-template-name="index">
+    <h1>Welcome to The Flint & Flame!</h1>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="about">
+    <h1>About the Fire Spirits</h1>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="credits">
+    <h1>Thanks for visiting!</h1>
   </script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
