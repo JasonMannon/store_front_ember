@@ -15,6 +15,8 @@
         <ul class='nav navbar-nav navbar-right'>
           <li>{{#link-to 'index'  class='navbar-brand' }}Home{{/link-to}}</li>
           <li>{{#link-to 'about' class='navbar-brand'}}About{{/link-to}}</li>
+          <li>{{#link-to 'products' class='navbar-brand'}}Products{{/link-to}}</li>
+          <li>{{#link-to 'contacts' class='navbar-brand'}}Contact{{/link-to}}</li>
         </ul>
       </div>
     </div>
@@ -45,6 +47,31 @@
 
   <script type="text/x-handlebars" data-template-name="credits">
     <h1>Thanks for visiting!</h1>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="products">
+    <h1>Products</h1>
+    <ul class="list-unstyled col-md-8">
+    {{#each}}
+      <li class='row'>
+        <img {{bind-attr src='image'}} class='img-thumbnail col-md-5' />
+        <div class='col-md-7'>
+          <h2>{{title}}</h2>
+          <p class='product-description'>{{description}}</p>
+          <p><button class='btn btn-success'>Buy for ${{price}}</button></p>
+        </div>
+      </li>
+    {{/each}}
+  </ul>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="contacts">
+    <h1>Contacts</h1>
+    {{#each}}
+      <h2>{{name}}</h2>
+      <img {{bind-attr src='avatar'}} height='100' width='100' />
+      <p>{{about}}</p>
+    {{/each}}
   </script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
