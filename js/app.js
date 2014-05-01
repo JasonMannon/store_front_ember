@@ -10,6 +10,14 @@ Store.IndexController = Ember.Controller.extend({
   }.property()
 });
 
+Store.AboutController = Ember.Controller.extend({
+  contactName: "Jason",
+  avatar: 'images/avatar.jpg',
+  open: function() {
+    return ((new Date()).getDay() === 0) ? "Closed" : "Open";
+  }.property()
+});
+
 Store.Router.map(function() {
   this.route('about', { path: '/aboutus' });
 });
