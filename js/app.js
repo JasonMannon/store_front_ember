@@ -26,6 +26,7 @@ Store.AboutController = Ember.Controller.extend({
 Store.Router.map(function() {
   this.route('about', { path: '/aboutus' });
   this.resource('products', { path: '/products' });
+  this.resource('product', { path: '/products/:title' });
   this.resource('contacts');
 });
 
@@ -38,6 +39,12 @@ Store.Router.map(function() {
 Store.ProductsRoute = Ember.Route.extend({
   model: function() {
     return Store.PRODUCTS;
+  }
+});
+
+Store.ProductRoute = Ember.Route.extend({
+  model: function(params) {
+    return Store.PRODUCTS.findBy('title', params.title);
   }
 });
 
