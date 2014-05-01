@@ -25,8 +25,9 @@ Store.AboutController = Ember.Controller.extend({
 //Router
 Store.Router.map(function() {
   this.route('about', { path: '/aboutus' });
-  this.resource('products', { path: '/products' });
-  this.resource('product', { path: '/products/:title' });
+  this.resource('products', function() {
+    this.resource('product', { path: '/:title' });
+  });
   this.resource('contacts');
   this.resource('contact', { path: '/contacts/:name' });
 });
