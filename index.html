@@ -56,11 +56,11 @@
       <li class='row'>
         <img {{bind-attr src='image'}} class='img-thumbnail col-md-5' />
         <div class='col-md-7'>
-          {{#link-to 'product' this classNames='list-group-item'}}
-            <h2>{{title}}</h2>
-          {{/link-to}}
+          <h2>{{title}}</h2>
           <p class='product-description'>{{description}}</p>
-          <p><button class='btn btn-success'>Buy for ${{price}}</button></p>
+          {{#link-to 'product' this class='btn btn-success' tagName='button'}}
+            Buy for ${{price}}
+          {{/link-to}}
         </div>
       </li>
     {{/each}}
@@ -70,8 +70,8 @@
   <script type="text/x-handlebars" data-template-name="contacts">
     <h1>Contacts</h1>
     {{#each}}
-      <h2>{{name}}</h2>
-      <img {{bind-attr src='avatar'}} height='100' width='auto' />
+      <h2>{{#link-to 'contact' this}}{{name}}{{/link-to}}</h2>
+      <img {{bind-attr src='avatar' alt='name'}} height='100' width='auto' />
       <p>{{about}}</p>
     {{/each}}
   </script>
@@ -85,6 +85,18 @@
       </div>
       <div class='col-md-5'>
         <img {{bind-attr src='image'}} class='img-thumbnail img-rounded' />
+      </div>
+    </div>
+  </script>
+
+  <script type='text/x-handlebars' data-template-name='contact'>
+    <div class="row">
+      <div class='col-md-7'>
+        <h3 class='text-success'>{{name}}</h3>
+        <p class='text-muted'>{{about}}</p>
+      </div>
+      <div class='col-md-5'>
+        <img {{bind-attr src='avatar' alt='name'}} class='img-thumbnail img-rounded' />
       </div>
     </div>
   </script>
